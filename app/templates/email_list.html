@@ -6,30 +6,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<header class="border-bottom p-3 mb-3 col-4 bg-light row justify-content-center">
-    Email list
-</header>
-<main>
-    <div class="col-4">
-     Waiting
-     <ul class="list-group">
-         {% for msg in msgs %}
-                  {% if msg.status == 2 %}
-                        <li class="list-group-item">Title: "{{ msg.title }}"; Body: "{{ msg.body }}"</li>
-                  {% endif %}
-         {% endfor %}
-     </ul>
-    </div>
 
-    <div class="col-4">
-        Sent
+<main>
+    <br>
+    <div class="card text-center border-info" style="margin: 1% 15% 0 15%;">
+        <h3 class="card-header">Email list</h3>
+
+        <div class="card-body">
+            <h5 class="card-title">Waiting</h5>
+            <p class="card-text">
+             <ul class="list-group">
+                 {% for msg in msgs %}
+                          {% if msg.status == 2 %}
+                                <li class="list-group-item">Title: "{{ msg.title }}"; Body: "{{ msg.body }}"</li>
+                          {% endif %}
+                 {% endfor %}
+             </ul></p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Sent</h5>
+            <p class="card-text">
              <ul class="list-group">
                  {% for msg in msgs %}
                       {% if msg.status == 1 %}
                         <li class="list-group-item">Title: "{{ msg.title }}"; Body: "{{ msg.body }}"</li>
                       {% endif %}
                  {% endfor %}
-             </ul>
+             </ul></p>
+    </div>
     </div>
 
 </main>
